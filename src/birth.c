@@ -2439,7 +2439,10 @@ static void player_wipe(void)
     /* Wipe the recall depths */
     for (i = 0; i < max_d_idx; i++)
     {
-        max_dlv[i] = 0;
+        if (d_info[i].flags1 & DF1_RANDOM || d_info[i].flags1 & DF1_WINNER)
+            max_dlv[i] = 0;
+        else
+            max_dlv[i] = d_info[i].mindepth;
         dungeon_flags[i] = 0;
     }
 
