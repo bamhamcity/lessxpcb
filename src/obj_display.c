@@ -918,6 +918,7 @@ extern void obj_display_doc(object_type *o_ptr, doc_ptr doc)
     _display_curses(o_ptr, flgs, doc);
     _display_ignore(o_ptr, flgs, doc);
 
+<<<<<<< HEAD
     _display_ego_desc(o_ptr, doc);
 
     if (object_is_known(o_ptr))
@@ -928,6 +929,17 @@ extern void obj_display_doc(object_type *o_ptr, doc_ptr doc)
             doc_printf(doc, "This object is an artifact, a unique object whose powers you must learn by *identifying* or selling this object.\n");
         else if (!(o_ptr->ident & IDENT_FULL))
             doc_printf(doc, "This object may have additional powers which you may learn by *identifying* or selling this object.\n");
+=======
+    if (!(o_ptr->ident & IDENT_FULL))
+        doc_printf(doc, "This object may have additional powers.\n");
+    else if (p_ptr->prace == RACE_ANDROID)
+    {
+        char tmp[10];
+        int item_exp = android_item_exp(o_ptr);
+        big_num_display(item_exp, tmp);
+        if (item_exp)
+            doc_printf(doc, "Cst: %s\n", tmp);
+>>>>>>> b5fed09... Show Android Cst when examining an item.
     }
 
     _display_autopick(o_ptr, doc);
