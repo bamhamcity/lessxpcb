@@ -258,6 +258,19 @@ int equip_find_artifact(int which)
     return 0;
 }
 
+int equip_find_art_or_replacement(int which)
+{
+    int i;
+    for (i = EQUIP_BEGIN; i < EQUIP_BEGIN + _template->count; i++)
+    {
+        object_type *o_ptr = equip_obj(i);
+
+        if (o_ptr && (o_ptr->name1 == which || o_ptr->name3 == which))
+            return i;
+    }
+    return 0;
+}
+
 int equip_find_ego(int which)
 {
     int i;
@@ -1115,9 +1128,9 @@ void equip_calc_bonuses(void)
             int rhand = arm*2;
             int lhand = arm*2 + 1;
             if (p_ptr->weapon_info[rhand].wield_how == WIELD_TWO_HANDS)
-                p_ptr->weapon_info[rhand].giant_wield = TRUE;
+                p_ptr->weapon_info[rhand].giant_wield = o_ptr->pval;
             else if (p_ptr->weapon_info[lhand].wield_how == WIELD_TWO_HANDS)
-                p_ptr->weapon_info[lhand].giant_wield = TRUE;
+                p_ptr->weapon_info[lhand].giant_wield = o_ptr->pval;
         }
 
         if (o_ptr->rune)
@@ -1463,11 +1476,24 @@ void equip_calc_bonuses(void)
 
         /* Hack -- Archery now benefits from equipment slays. Without this, only
            Sniper gloves and Archery rings affect shooting, and that seems a bit
-           unfair (especially since melee is so favored)  */
-        else if ( o_ptr->tval != TV_GLOVES
+           unfair (especially since melee is so favored).
+           BTW, as best I can tell, Hengband always applied bonuses to hit to archery,
+           but never applied bonuses to damage.
+           Perhaps we need a TR_ARCHERY flag?  */
+        else if ( o_ptr->name2 != EGO_GLOVES_BERSERKER
+               && o_ptr->name2 != EGO_GLOVES_GIANT
+               && o_ptr->name2 != EGO_GLOVES_SLAYING
+               && o_ptr->name2 != EGO_GLOVES_THIEF
                && o_ptr->name2 != EGO_RING_COMBAT
+               && o_ptr->name2 != EGO_HELMET_TROLL
+               && o_ptr->name2 != EGO_HELMET_RAGE
+               && o_ptr->name2 != EGO_SHIELD_DWARVEN
+               && o_ptr->name2 != EGO_SHIELD_ORCISH
                && o_ptr->name2 != EGO_CROWN_MIGHT
                && o_ptr->name2 != EGO_CLOAK_FAIRY  /* Hey, fairies can shoot just fine :) */
+               && o_ptr->name2 != EGO_CLOAK_BAT
+               && o_ptr->name2 != EGO_CLOAK_COWARDICE
+               && o_ptr->name1 != ART_KAMIKAZE_ROBE
                && o_ptr->name1 != ART_TERROR
                && o_ptr->name1 != ART_HAMMERHAND )
         {
@@ -1494,7 +1520,16 @@ void equip_calc_bonuses(void)
 
         _weapon_bonus(i, bonus_to_h, bonus_to_d);
         if (have_flag(flgs, TR_WEAPONMASTERY))
+        {
             _weaponmastery(i, o_ptr->pval);
+
+            if ( o_ptr->name1 == ART_NARYA
+              || o_ptr->name1 == ART_NENYA
+              || o_ptr->name1 == ART_VILYA )
+            {
+                p_ptr->shooter_info.to_mult += 25 * o_ptr->pval;
+            }
+        }
     }
 }
 

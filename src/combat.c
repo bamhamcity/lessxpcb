@@ -342,6 +342,7 @@ int calculate_base_blows(int hand, int str_idx, int dex_idx)
     object_type   *o_ptr = NULL;
     int            blow_str_idx;
     int            div = 0;
+    int            mul = 0;
     int            wgt = 0;
     _blow_info_t   blow_info = {0};
     _range_t       rng = _blows_range[dex_idx];
@@ -355,12 +356,10 @@ int calculate_base_blows(int hand, int str_idx, int dex_idx)
     blow_info = _get_blow_info(hand);
 
     wgt = o_ptr->weight;
-    if (info_ptr->giant_wield && wgt > 300)
-        wgt = 300;
-
     div = (wgt < blow_info.wgt) ? blow_info.wgt : wgt;
+    mul = blow_info.mul + info_ptr->giant_wield * 10;
 
-    blow_str_idx = adj_str_blow[str_idx] * blow_info.mul / div; /* Scaled by 10 */
+    blow_str_idx = adj_str_blow[str_idx] * mul / div; /* Scaled by 10 */
     if (info_ptr->wield_how == WIELD_TWO_HANDS)
     {
         if (!info_ptr->omoi)
@@ -435,8 +434,8 @@ static void _display_weapon_slay(int base_mult, int slay_mult, bool force, int b
         min = max;
 
     doc_printf(doc, "<color:%c> %-7.7s</color>", attr_to_attr_char(color), name);
-    doc_printf(doc, ": %d (%d-%d) [%d.%02dx]\n",
-                    (min + max)/2, min, max,
+    doc_printf(doc, ": %d [%d.%02dx]\n",
+                    (min + max)/2,
                     mult/100, mult%100);
 }
 
@@ -510,7 +509,9 @@ void display_weapon_info(doc_ptr doc, int hand)
     mult = 100;
     if (have_flag(flgs, TR_VORPAL2))
         mult = mult * 5 / 3;
-    else if (have_flag(flgs, TR_VORPAL))
+    else if (have_flag(flgs, TR_VORPAL) && p_ptr->vorpal)
+        mult = mult * 11 / 8;
+    else if (have_flag(flgs, TR_VORPAL) || p_ptr->vorpal)
         mult = mult * 11 / 9;
 
     mult += mult * p_ptr->weapon_info[hand].to_mult / 100;
