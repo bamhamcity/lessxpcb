@@ -582,7 +582,7 @@
  * slot, which can hold an item, but only temporarily, since it causes the
  * pack to "overflow", dropping the "last" item onto the ground.
  */
-#define INVEN_PACK      26
+#define INVEN_PACK      25
 #define EQUIP_BEGIN     (INVEN_PACK + 1)
 #define INVEN_TOTAL     50
 #define EQUIP_MAX_SLOTS (INVEN_TOTAL - EQUIP_BEGIN)
