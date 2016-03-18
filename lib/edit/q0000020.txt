@@ -1,11 +1,10 @@
 # q0000020.txt
-# a quick creation by Jeff Coleburn <vsp@netaxs.com>
 
 # Name
 Q:20:N:Vapor Quest
 
 # Definition
-Q:20:Q:6:0:0:0:25:0:0:0:6
+Q:20:Q:6:0:0:0:40:0:0:0:6
 
 # Description for quest
 ?:[LEQ $QUEST20 2]
@@ -32,71 +31,51 @@ Q:20:T:evils plague this land.
 Q:20:T:I've sent out someone else to do the job.  Now leave me alone!
 ?:1
 
-# Floor with Space Monster
-F:a:FLOOR:8:144
+# Floor with Radiation eye
+F:e:FLOOR:8:80
 
-# Floor with Clear mushroom patch
-F:b:FLOOR:8:184
+# Floor with Gas spore
+F:g:FLOOR:8:519
 
-# Floor with Air spirit
-F:c:FLOOR:8:227
+# Floor with Air elemental
+F:E:FLOOR:8:526
 
-# Floor with Lurker
-F:d:FLOOR:8:247
-
-# Floor with Clear hound
-F:e:FLOOR:8:282
-
-# Floor with Stunwall
-F:f:FLOOR:8:326
-
-# Floor with Landmine
-F:g:FLOOR:8:333
-
-# Floor with Vampiric Mist
-F:h:FLOOR:8:365
-
-# Floor with Black
-F:i:FLOOR:8:402
+# Floor with Shimmering vortex
+F:v:FLOOR:8:600
 
 # Floor with Weird fume
 F:j:FLOOR:8:625
 
+# Floor with a ring
+F:b:FLOOR:8:0:132
+
+# Floor with an amulet
+F:c:FLOOR:8:0:163
+
 # Dungeon layout
-D:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-D:X.T...........T.%T.....%.....T..D....%..D..%.jX
-D:X..haiahaiahai..%%.....%.hhhh..%%i...%..%.TD.TX
-D:X................%%...j%.hhhh.%%.....%.%%%%%%%X
-D:X%%%D%%%%%%%%D%%%%%%...%...g.%%..Ti..%.%hhhhhhX
-D:X.................%%%D%%%%%D%%%i..i..%.%%%%%D%X
-D:X..............j..%...........%i...i.%g%......X
-D:X.................%...........%..i...%.%..T...X
-D:X%%%%%%%gg%%%%%%%%%......a....%%%%%%%%.%%%D%%%X
-D:X%%%%%%%..%....c.....................%.D......X
-D:X%%TT%%%..%............fff...........%.%%%%%%%X
-D:X%%dd%%%T.%......d..d..%%f..a..e.e...%.%......X
-D:X%....%%..%....a.......%%f...........%.D......X
-D:X%....%%..%............fff...........%.%......X
-D:X%..a.%%..%.....................e....%.%......X
-D:X%....%%..%...............c..........%.%..T...X
-D:X%....%%..%%%%%%%%%...........%%%%%%%%.%%%%%%%X
-D:X%.a..%%..%...T...%...........%f..........%.a.X
-D:X%....%%..D......T%....bbb....%f.....e....%...X
-D:X%....%%..%%%%%%%%%%%%%%D%%%%%%f.....e....%...X
-D:X%....%%e.........%.....d.....%f....e.....%.c.X
-D:X%.i..%%....c.....%...........%f....e.e...%...X
-D:X%....%%e.........%...........%f..........%...X
-D:X%....%%..........%...c.......%f..........D...X
-D:X%....%%%%%D%%%%%%%...........%%..........%...X
-D:X%....bb.....%.a..D...........D....e......%.T.X
-D:X%....bb.....%....%.bbbbbbbbb.%%...e......%...X
-D:X%....%%%....D....%.bbbbbbbbb.%f......e...%.c.X
-D:X%....%%%....%.a..%...........%f......e...%...X
-D:X%....he.....%....%...........%f...e......%...X
-D:X%....ab.....%.c..%...<.......%f..........%..cX
-D:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+D:XXXXXXXXXXXXXXXXXXXXXXXXX
+D:XXXXXXXXXXXXvXXXXXXXXXXXX
+D:XXXXXXXXXXX...XXXXXXXXXXX
+D:XXXXXXXXXE.....EXXXXXXXXX
+D:XXXXXXXXXXX...XXXXXXXXXXX
+D:XXXXXXXXXXXX.XXXXXXXXXXXX
+D:XXXXXXXXXXX.g.XXXXXXXXXXX
+D:XXXXXXXX.........XXXXXXXX
+D:XXXXXXX...........XXXXXXX
+D:XXXXXXe...........eXXXXXX
+D:XXXXXXX...........XXXXXXX
+D:XXccEXe...........eXEbbXX
+D:Xc...XX...........XX...bX
+D:Xj.....................jX
+D:Xc...XX...........XX...bX
+D:XXccEXe...........eXEbbXX
+D:XXXXXXX...........XXXXXXX
+D:XXXXXXe...........eXXXXXX
+D:XXXXXXX...........XXXXXXX
+D:XXXXXXXX.........XXXXXXXX
+D:XXXXXXXXXXX.<.XXXXXXXXXXX
+D:XXXXXXXXXXXXXXXXXXXXXXXXX
+
 
 # Starting position
-P:30:23
-
-
+P:20:12
