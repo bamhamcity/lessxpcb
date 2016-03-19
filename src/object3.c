@@ -345,7 +345,7 @@ s32b _finalize_p(s32b p, u32b flgs[TR_FLAG_SIZE], object_type *o_ptr)
         }
     }
 
-    if (have_flag(flgs, TR_TY_CURSE))
+    if (have_flag(flgs, TR_TY_CURSE) && !(o_ptr->curse_flags & TRC_PERMA_CURSE))
     {
         p = p * 5 / 10;
         if (cost_calc_hook)
@@ -518,17 +518,25 @@ s32b jewelry_cost(object_type *o_ptr, int options)
 
     if (have_flag(flgs, TR_WEAPONMASTERY))
     {
+<<<<<<< HEAD
         p += 10000 * pval;
         if (cost_calc_hook)
         {
             sprintf(dbg_msg, "  * Weaponmastery: p = %d", p);
             cost_calc_hook(dbg_msg);
         }
+=======
+        p += 50000 * pval;
+>>>>>>> ed5fbe2... Tweak randart valuation/generation, mainly for jewellery.
     }
 
     if (have_flag(flgs, TR_BLOWS))
     {
+<<<<<<< HEAD
         p += 15000 * pval;
+=======
+        p += 50000 * pval;
+>>>>>>> ed5fbe2... Tweak randart valuation/generation, mainly for jewellery.
         if (cost_calc_hook)
         {
             sprintf(dbg_msg, "  * Blows: p = %d", p);
