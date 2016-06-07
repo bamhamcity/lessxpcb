@@ -938,6 +938,7 @@ extern void obj_display_doc(object_type *o_ptr, doc_ptr doc)
         if (item_exp)
             doc_printf(doc, "Cst: %s\n", tmp);
     }
+	}
 
     _display_autopick(o_ptr, doc);
     _display_cost(o_ptr, doc);
