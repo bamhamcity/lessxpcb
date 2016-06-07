@@ -132,7 +132,7 @@ race_t *mon_xorn_get_race(void)
                     "play like warriors and are strong as such.";
 
         me.infra = 5;
-        me.exp = 150;
+        me.exp = 110;
         me.base_hp = 30;
         me.shop_adjust = 120;
 

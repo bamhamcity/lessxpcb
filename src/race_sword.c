@@ -957,7 +957,7 @@ race_t *mon_sword_get_race(void)
                     "find, gaining power in the process.";
 
         me.infra = 3;
-        me.exp = 150;
+        me.exp = 110;
         me.base_hp = 30;
         me.shop_adjust = 110; /* I think shopkeepers are puzzled, more than anything else! */
 

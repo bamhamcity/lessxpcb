@@ -469,7 +469,7 @@ race_t *demigod_get_race(int psubrace)
 
         me.life = 100;
         me.base_hp = 20;
-        me.exp = 180;
+        me.exp = 130;
         me.shop_adjust = 100;
 
         me.calc_bonuses = NULL;
@@ -495,7 +495,7 @@ race_t *demigod_get_race(int psubrace)
                          "might even decide to follow you with slavish devotion, though sometimes this "
                          "just angers them.";
             me.stats[A_CHR] += 2;
-            me.exp += 40;
+            me.exp += 20;
             me.skills.dev += 2;
             me.shop_adjust = 70;
             me.calc_bonuses = _aphrodite_calc_bonuses;
@@ -508,7 +508,7 @@ race_t *demigod_get_race(int psubrace)
                          "truth and prophecy, medicine, healing, plague, music, poetry, arts, "
                          "archery, and more. You inherit powers of illumination and are completely "
                          "immune to light based attacks. You are seldom blinded.";
-            me.exp += 50;
+            me.exp += 25;
             me.skills.dev += 3;
             me.calc_bonuses = _apollo_calc_bonuses;
             me.get_powers = _apollo_get_powers;
@@ -528,7 +528,7 @@ race_t *demigod_get_race(int psubrace)
             me.skills.sav -= 5;
             me.skills.stl -= 1;
             me.skills.thn += 15;
-            me.exp += 60;
+            me.exp += 30;
             me.calc_bonuses = _ares_calc_bonuses;
             me.get_powers = _ares_get_powers;
             me.get_flags = _ares_get_flags;
@@ -544,7 +544,7 @@ race_t *demigod_get_race(int psubrace)
                          "with increased range and deadliness.";
             me.stats[A_DEX] += 2;
             me.skills.thb += 15;
-            me.exp += 50;
+            me.exp += 25;
             me.calc_bonuses = _artemis_calc_bonuses;
             me.get_flags = _artemis_get_flags;
             break;
@@ -557,7 +557,7 @@ race_t *demigod_get_race(int psubrace)
                          "cast a spell, you will pay a reduced casting cost rather than the full amount. "
                          "You also have a firm grip on your mental prowess.";
             me.stats[A_INT] += 2;
-            me.exp += 60;
+            me.exp += 30;
             me.skills.dev += 10;
             me.skills.sav += 2;
             me.calc_bonuses = _athena_calc_bonuses;
@@ -569,7 +569,7 @@ race_t *demigod_get_race(int psubrace)
                          "fertility of the earth, and the seasons. You gain powers of regeneration, "
                          "healing, and temperance. Eventually, you will become resistant to the "
                          "ravages of time.";
-            me.exp += 40;
+            me.exp += 20;
             me.skills.sav += 5;
             me.calc_bonuses = _demeter_calc_bonuses;
             me.get_powers = _demeter_get_powers;
@@ -584,7 +584,7 @@ race_t *demigod_get_race(int psubrace)
             me.skills.thn += 5;
             me.skills.stl += 1;
             me.life += 7;
-            me.exp += 60;
+            me.exp += 30;
             me.calc_bonuses = _hades_calc_bonuses;
             me.get_flags = _hades_get_flags;
             break;
@@ -596,7 +596,7 @@ race_t *demigod_get_race(int psubrace)
                          "grotesque appearance in Greek eyes. He served as the blacksmith of the "
                          "gods. You inherit powers of enchantment and protection. Your equipment "
                          "will not suffer diminution by corrosion or magical attack.";
-            me.exp += 50;
+            me.exp += 25;
             me.skills.thn += 10;
             me.skills.sav += 2;
             me.calc_bonuses = _hephaestus_calc_bonuses;
@@ -609,7 +609,7 @@ race_t *demigod_get_race(int psubrace)
                          "mind and capacity for magic. You are very wise and have a firm grasp on "
                          "your magical energy, which is even augmented.";
             me.stats[A_WIS] += 2;
-            me.exp += 40;
+            me.exp += 20;
             me.skills.sav += 5;
             me.skills.dev += 5;
             me.calc_bonuses = _hera_calc_bonuses;
@@ -627,7 +627,7 @@ race_t *demigod_get_race(int psubrace)
             me.skills.stl += 3;
             me.skills.srh += 5;
             me.skills.fos += 5;
-            me.exp += 60;
+            me.exp += 30;
             me.calc_bonuses = _hermes_calc_bonuses;
             me.get_flags = _hermes_get_flags;
             break;
@@ -638,7 +638,7 @@ race_t *demigod_get_race(int psubrace)
             me.stats[A_STR] += 1;
             me.stats[A_DEX] += 1;
             me.skills.thn += 7;
-            me.exp += 60;
+            me.exp += 30;
             me.calc_bonuses = _poseidon_calc_bonuses;
             me.get_flags = _poseidon_get_flags;
             break;
@@ -655,7 +655,7 @@ race_t *demigod_get_race(int psubrace)
             me.skills.thb += 5;
             for (i = 0; i < 6; i++)
                 me.stats[i]++;
-            me.exp += 70;
+            me.exp += 35;
             me.shop_adjust = 90;
             me.calc_bonuses = _zeus_calc_bonuses;
             me.get_flags = _zeus_get_flags;

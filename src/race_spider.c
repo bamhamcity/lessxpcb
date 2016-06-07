@@ -605,7 +605,7 @@ race_t *mon_spider_get_race(void)
 
     result->name = "Spider";
     result->desc = _desc;
-    result->exp = 200;
+    result->exp = 150;
     result->equip_template = mon_get_equip_template();
     result->flags = RACE_IS_MONSTER;
     result->gain_level = _gain_level;

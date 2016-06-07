@@ -540,7 +540,7 @@ race_t *mon_vampire_get_race(void)
         me.extra_skills = xs;
 
         me.base_hp = 20;
-        me.exp = 250;
+        me.exp = 200;
         me.infra = 5;
         me.shop_adjust = 130;
 

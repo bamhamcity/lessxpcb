@@ -607,14 +607,14 @@ race_t *mon_golem_get_race(int psubrace)
         if (!p_ptr->current_r_idx)
             me.subname = "Sky Golem";
         me.life = 100 + 2*rank;
-        me.exp = 250;
+        me.exp = 175;
         break;
 
     case GOLEM_SPELLWARP:
         if (!p_ptr->current_r_idx)
             me.subname = "Spellwarp Automaton";
         me.life = 100 + 3*rank;
-        me.exp = 350;
+        me.exp = 200;
         break;
 
     case GOLEM_COLOSSUS:
@@ -628,7 +628,7 @@ race_t *mon_golem_get_race(int psubrace)
             me.stats[A_CON] += 3;
         }
         me.life = 100 + 5*rank;
-        me.exp = 200;
+        me.exp = 150;
         break;
     }
 

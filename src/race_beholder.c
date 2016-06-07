@@ -328,7 +328,7 @@ race_t *mon_beholder_get_race(void)
         me.extra_skills = xs;
 
         me.infra = 8;
-        me.exp = 250;
+        me.exp = 175;
         me.base_hp = 20;
         me.life = 100;
         me.shop_adjust = 140;

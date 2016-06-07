@@ -439,7 +439,7 @@ race_t *mon_troll_get_race(void)
             "but are hopeless with magical devices. Trolls have incredible powers of regeneration.";
 
         me.infra = 5;
-        me.exp = 150;
+        me.exp = 125;
         me.base_hp = 50;
         me.shop_adjust = 135;
 

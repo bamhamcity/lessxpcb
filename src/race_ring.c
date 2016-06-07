@@ -1634,7 +1634,7 @@ race_t *mon_ring_get_race(void)
 
         me.life = 85;
         me.infra = 5;
-        me.exp = 150;
+        me.exp = 110;
         me.base_hp = 10;
         me.shop_adjust = 110; /* Really should depend on current bearer */
 

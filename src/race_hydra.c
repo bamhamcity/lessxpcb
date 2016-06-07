@@ -313,7 +313,7 @@ race_t *mon_hydra_get_race(void)
         me.desc = _desc;
 
         me.infra = 5;
-        me.exp = 130;
+        me.exp = 110;
         me.base_hp = 45;
         me.shop_adjust = 130;
 

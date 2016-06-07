@@ -703,7 +703,7 @@ race_t *mon_hound_get_race(void)
 
 
         me.infra = 5;
-        me.exp = 150;
+        me.exp = 125;
         me.life = 100;
         me.base_hp = 22;
         me.shop_adjust = 110;

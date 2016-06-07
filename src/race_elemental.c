@@ -417,7 +417,7 @@ static race_t *_earth_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 170;
+        me.exp = 140;
 
         me.birth = _earth_birth;
         me.get_powers = _earth_get_powers;
@@ -681,7 +681,7 @@ static race_t *_air_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 225;
+        me.exp = 180;
 
         me.birth = _air_birth;
         me.get_powers = _air_get_powers;
@@ -945,7 +945,7 @@ static race_t *_water_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 200;
+        me.exp = 175;
 
         me.birth = _water_birth;
         me.get_powers = _water_get_powers;
@@ -1243,7 +1243,7 @@ static race_t *_fire_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 200;
+        me.exp = 175;
 
         me.birth = _fire_birth;
         me.get_powers = _fire_get_powers;

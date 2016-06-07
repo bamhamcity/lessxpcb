@@ -981,7 +981,7 @@ race_t *mon_quylthulg_get_race(void)
                     "attacks.";
 
         me.infra = 5;
-        me.exp = 150;
+        me.exp = 100;
         me.base_hp = 0;
         me.shop_adjust = 120;
 

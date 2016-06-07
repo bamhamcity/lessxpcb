@@ -448,7 +448,7 @@ static dragon_realm_t _realms[DRAGON_REALM_MAX] = {
         "becomes less costly as they mature. This focus requires great fortitude to master "
         "and somewhat diminishes the dragon's defenses and melee.",
     /*  S   I   W   D   C   C    Dsrm Dvce Save Stlh Srch Prcp Thn Thb  Life  Exp Attack Breath*/
-      { 0, -1, -1,  0, +3, +1}, {   0,   0,   3,  -1,   0,   0,  0,  0}, 103, 105,    90,   115, A_CON},
+      { 0, -1, -1,  0, +3, +1}, {   0,   0,   3,  -1,   0,   0,  0,  0}, 103, 100,    90,   115, A_CON},
 
     { "Attack", 
         "Attack dragons seek melee supremacy above all else. This realm offers powerful attack "
@@ -459,7 +459,7 @@ static dragon_realm_t _realms[DRAGON_REALM_MAX] = {
         "breath element! Truly, a rampaging dragon is an awe inspiring sight, one that is "
         "seldom witnessed (or perhaps seldom survived?). This focus values strength above all else.",
     /*  S   I   W   D   C   C    Dsrm Dvce Save Stlh Srch Prcp Thn Thb  Life  Exp Attack Breath*/
-      {+3, -2, -2, +1, -1,  0}, {  -5,  -5,  -3,  -1,  -2,  -2, 15,  0},  97, 105,   115,    80, A_STR},
+      {+3, -2, -2, +1, -1,  0}, {  -5,  -5,  -3,  -1,  -2,  -2, 15,  0},  100, 100,   115,    90, A_STR},
 
     { "Craft", 
         "The most powerful magical items have long been believed forged by dragonflame. The "
@@ -479,7 +479,7 @@ static dragon_realm_t _realms[DRAGON_REALM_MAX] = {
         "to offer temporary defensive augmentations. Unlike their kin, dragons of this order prize "
         "agility above all else.",
     /*  S   I   W   D   C   C    Dsrm Dvce Save Stlh Srch Prcp Thn Thb  Life  Exp Attack Breath*/
-      {-1, -1, -1, +3, +1, +1}, {  -2,  -3,   7,   1,   0,   0,-10,  0}, 102, 105,    90,    90, A_DEX},
+      {-1, -1, -1, +3, +1, +1}, {  -2,  -3,   7,   1,   0,   0,-10,  0}, 102, 100,    90,    90, A_DEX},
 
     { "Domination", 
         "All dragons have a formidable presence and make fearsome opponents. But Domination dragons "
@@ -491,7 +491,7 @@ static dragon_realm_t _realms[DRAGON_REALM_MAX] = {
         "domination may sever all oaths of allegiance, returning enemy summons to where they came. "
         "Needless to say, dragons of this order value force of will above all else.",
     /*  S   I   W   D   C   C    Dsrm Dvce Save Stlh Srch Prcp Thn Thb  Life  Exp Attack Breath*/
-      {-1, -1, -1, -1, -1, +3}, {  -2,  -3,  -2,   0,   0,   0, -7,  0},  95, 105,    95,    90, A_CHR},
+      {-1, -1, -1, -1, -1, +3}, {  -2,  -3,  -2,   0,   0,   0, -7,  0},  100, 100,    95,    90, A_CHR},
 
     { "Crusade", 
         "Crusade dragons are on a mission to destroy the forces of evil. As such, this realm is only "
@@ -503,7 +503,7 @@ static dragon_realm_t _realms[DRAGON_REALM_MAX] = {
         "holy power, both in melee and in breath. Strong in personality, dragons of this order "
         "may summon like minded kin for the final battles.",
     /*  S   I   W   D   C   C    Dsrm Dvce Save Stlh Srch Prcp Thn Thb  Life  Exp Attack Breath*/
-      {+1, -1, -1, +1, -1, +2}, {  -5,   0,  -2,   0,  -2,  -2,  7,  0},  95, 107,    90,    90, A_CHR},
+      {+1, -1, -1, +1, -1, +2}, {  -5,   0,  -2,   0,  -2,  -2,  7,  0},  100, 100,    90,    90, A_CHR},
 
     { "Death", 
         "Death dragons are enemies of life itself, seeking to destroy all living creatures. With this "
@@ -512,7 +512,7 @@ static dragon_realm_t _realms[DRAGON_REALM_MAX] = {
         "gain a powerful draining effect against living creatures. This focus values strength above "
         "all else. This foul realm is only available to Shadow and Chaos dragons.",
     /*  S   I   W   D   C   C    Dsrm Dvce Save Stlh Srch Prcp Thn Thb  Life  Exp Attack Breath*/
-      {+2, -2, -2,  0, -2, +1}, {  -5,  -3,  -3,   2,  -2,  -2,  5,  0},  95, 105,    90,    90, A_STR},
+      {+2, -2, -2,  0, -2, +1}, {  -5,  -3,  -3,   2,  -2,  -2,  5,  0},  100, 100,    90,    90, A_STR},
 };
 
 dragon_realm_ptr dragon_get_realm(int which)
@@ -2338,7 +2338,7 @@ static race_t *_elemental_get_race_t(int subrace)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 250;
+        me.exp = 200;
 
         me.birth = _elemental_birth;
         me.get_powers = _dragon_get_powers;
@@ -2463,7 +2463,7 @@ static race_t *_nether_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 300;
+        me.exp = 200;
 
         me.birth = _nether_birth;
         me.get_powers = _dragon_get_powers;
@@ -2560,7 +2560,7 @@ static race_t *_law_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 280;
+        me.exp = 200;
 
         me.birth = _law_birth;
         me.get_powers = _dragon_get_powers;
@@ -2658,7 +2658,7 @@ static race_t *_chaos_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 280;
+        me.exp = 200;
 
         me.birth = _chaos_birth;
         me.get_powers = _dragon_get_powers;
@@ -2755,7 +2755,7 @@ static race_t *_balance_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 300;
+        me.exp = 225;
 
         me.birth = _balance_birth;
         me.get_powers = _dragon_get_powers;
@@ -2864,7 +2864,7 @@ static race_t *_ethereal_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 250;
+        me.exp = 200;
 
         me.birth = _ethereal_birth;
         me.get_powers = _dragon_get_powers;
@@ -2974,7 +2974,7 @@ static race_t *_crystal_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 275;
+        me.exp = 200;
 
         me.birth = _crystal_birth;
         me.get_powers = _dragon_get_powers;
@@ -3076,7 +3076,7 @@ static race_t *_bronze_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 250;
+        me.exp = 200;
 
         me.birth = _bronze_birth;
         me.get_powers = _dragon_get_powers;
@@ -3179,7 +3179,7 @@ static race_t *_gold_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 250;
+        me.exp = 200;
 
         me.birth = _gold_birth;
         me.get_powers = _dragon_get_powers;
@@ -3293,7 +3293,7 @@ static race_t *_steel_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 250;
+        me.exp = 175;
 
         me.birth = _steel_birth;
         me.calc_bonuses = _steel_calc_bonuses;

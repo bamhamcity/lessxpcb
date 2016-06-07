@@ -200,7 +200,7 @@ race_t *mon_centipede_get_race(void)
         me.desc = _desc;
 
         me.infra = 5;
-        me.exp = 100;
+        me.exp = 75;
         me.base_hp = 15;
         me.shop_adjust = 120;
 

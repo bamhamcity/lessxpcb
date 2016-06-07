@@ -358,7 +358,7 @@ race_t *mon_jelly_get_race(void)
 
     result->name = "Jelly";
     result->desc = _desc;
-    result->exp = 150;
+    result->exp = 120;
     result->flags = RACE_IS_MONSTER /* | RACE_IS_ILLITERATE */;
     result->gain_level = _gain_level;
     result->get_powers = _jelly_get_powers;

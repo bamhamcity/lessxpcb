@@ -56,7 +56,7 @@ race_t *amberite_get_race(void)
 
         me.life = 100;
         me.base_hp = 20;
-        me.exp = 190;
+        me.exp = 150;
         me.infra = 0;
         me.shop_adjust = 100;
 
@@ -236,7 +236,7 @@ race_t *archon_get_race(void)
 
         me.life = 103;
         me.base_hp = 22;
-        me.exp = 200;
+        me.exp = 150;
         me.infra = 3;
         me.shop_adjust = 90;
 
@@ -310,7 +310,7 @@ race_t *balrog_get_race(void)
 
         me.life = 106;
         me.base_hp = 24;
-        me.exp = 180;
+        me.exp = 140;
         me.infra = 5;
         me.flags = RACE_IS_NONLIVING | RACE_IS_DEMON;
         me.shop_adjust = 140;
@@ -375,7 +375,7 @@ race_t *barbarian_get_race(void)
 
         me.life = 103;
         me.base_hp = 22;
-        me.exp = 135;
+        me.exp = 115;
         me.infra = 0;
         me.shop_adjust = 120;
 
@@ -444,7 +444,7 @@ race_t *beastman_get_race(void)
 
         me.life = 102;
         me.base_hp = 22;
-        me.exp = 150;
+        me.exp = 120;
         me.infra = 0;
         me.shop_adjust = 130;
 
@@ -603,7 +603,7 @@ race_t *centaur_get_race(void)
 
         me.life = 103;
         me.base_hp = 22;
-        me.exp = 190;
+        me.exp = 150;
         me.infra = 0;
         me.shop_adjust = 95;
 
@@ -672,7 +672,7 @@ race_t *cyclops_get_race(void)
 
         me.life = 108;
         me.base_hp = 24;
-        me.exp = 155;
+        me.exp = 125;
         me.infra = 1;
         me.shop_adjust = 135;
 
@@ -742,7 +742,7 @@ race_t *dark_elf_get_race(void)
 
         me.life = 97;
         me.base_hp = 18;
-        me.exp = 155;
+        me.exp = 125;
         me.infra = 5;
         me.shop_adjust = 120;
 
@@ -1182,7 +1182,7 @@ race_t *draconian_get_race(int psubrace)
 
         me.infra = 2;
 
-        me.exp = 190;
+        me.exp = 150;
         me.life = 103;
         me.shop_adjust = 105;
 
@@ -1265,7 +1265,7 @@ race_t *draconian_get_race(int psubrace)
             me.skills.sav += 1;
             me.skills.thn -= 2;
             me.skills.dev += 7;
-            me.exp += 25;
+            me.exp += 15;
             me.shop_adjust = 100;
             break;
         case DRACONIAN_CRYSTAL:
@@ -1282,7 +1282,7 @@ race_t *draconian_get_race(int psubrace)
             me.skills.stl -= 1;
             me.skills.thn += 7;
             me.life += 2;
-            me.exp += 60;
+            me.exp += 30;
             break;
         case DRACONIAN_GOLD:
             me.subname = "Gold";
@@ -1294,7 +1294,7 @@ race_t *draconian_get_race(int psubrace)
             me.skills.dev += 5;
             me.skills.sav += 3;
             me.life += 1;
-            me.exp += 30;
+            me.exp += 15;
             me.shop_adjust = 95;
             break;
         case DRACONIAN_SHADOW:
@@ -1310,7 +1310,7 @@ race_t *draconian_get_race(int psubrace)
             me.skills.stl += 3;
             me.skills.thn -= 5;
             me.life -= 1;
-            me.exp += 35;
+            me.exp += 20;
             me.infra += 2;
             break;
         }
@@ -1368,7 +1368,7 @@ race_t *dunadan_get_race(void)
 
         me.life = 100;
         me.base_hp = 20;
-        me.exp = 160;
+        me.exp = 150;
         me.infra = 0;
         me.shop_adjust = 100;
 
@@ -1434,7 +1434,7 @@ race_t *dwarf_get_race(void)
 
         me.life = 103;
         me.base_hp = 22;
-        me.exp = 135;
+        me.exp = 115;
         me.infra = 5;
         me.shop_adjust = 115;
 
@@ -1494,7 +1494,7 @@ race_t *ent_get_race(void)
 
         me.life = 105;
         me.base_hp = 25;
-        me.exp = 135;
+        me.exp = 115;
         me.infra = 0;
         me.shop_adjust = 95;
 
@@ -1582,7 +1582,7 @@ race_t *gnome_get_race(void)
 
         me.life = 95;
         me.base_hp = 16;
-        me.exp = 115;
+        me.exp = 100;
         me.infra = 4;
         me.shop_adjust = 115;
 
@@ -1669,7 +1669,7 @@ race_t *golem_get_race(void)
 
         me.life = 105;
         me.base_hp = 23;
-        me.exp = 185;
+        me.exp = 140;
         me.infra = 4;
         me.flags = RACE_IS_NONLIVING;
         me.shop_adjust = 120;
@@ -1738,7 +1738,7 @@ race_t *half_giant_get_race(void)
 
         me.life = 108;
         me.base_hp = 26;
-        me.exp = 150;
+        me.exp = 130;
         me.infra = 3;
         me.shop_adjust = 125;
 
@@ -1806,7 +1806,7 @@ race_t *half_ogre_get_race(void)
 
         me.life = 106;
         me.base_hp = 23;
-        me.exp = 140;
+        me.exp = 120;
         me.infra = 3;
         me.shop_adjust = 125;
 
@@ -1871,7 +1871,7 @@ race_t *half_titan_get_race(void)
 
         me.life = 110;
         me.base_hp = 28;
-        me.exp = 200;
+        me.exp = 150;
         me.infra = 0;
         me.shop_adjust = 90;
 
@@ -1940,7 +1940,7 @@ race_t *half_troll_get_race(void)
 
         me.life = 107;
         me.base_hp = 25;
-        me.exp = 150;
+        me.exp = 130;
         me.infra = 3;
         me.shop_adjust = 135;
 
@@ -1999,7 +1999,7 @@ race_t *high_elf_get_race(void)
 
         me.life = 99;
         me.base_hp = 19;
-        me.exp = 190;
+        me.exp = 150;
         me.infra = 4;
         me.shop_adjust = 90;
 
@@ -2055,7 +2055,7 @@ race_t *hobbit_get_race(void)
 
         me.life = 92;
         me.base_hp = 14;
-        me.exp = 120;
+        me.exp = 110;
         me.infra = 4;
         me.shop_adjust = 100;
 

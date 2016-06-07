@@ -57,7 +57,7 @@ race_t *klackon_get_race(void)
 
         me.life = 105;
         me.base_hp = 23;
-        me.exp = 170;
+        me.exp = 140;
         me.infra = 2;
         me.shop_adjust = 115;
 
@@ -188,7 +188,7 @@ race_t *kutar_get_race(void)
 
         me.life = 102;
         me.base_hp = 21;
-        me.exp = 175;
+        me.exp = 140;
         me.infra = 0;
         me.shop_adjust = 95;
 
@@ -262,7 +262,7 @@ race_t *mindflayer_get_race(void)
 
         me.life = 97;
         me.base_hp = 18;
-        me.exp = 150;
+        me.exp = 125;
         me.infra = 4;
         me.shop_adjust = 115;
 
@@ -329,7 +329,7 @@ race_t *nibelung_get_race(void)
 
         me.life = 103;
         me.base_hp = 22;
-        me.exp = 165;
+        me.exp = 130;
         me.infra = 5;
         me.shop_adjust = 115;
 
@@ -390,7 +390,7 @@ race_t *shadow_fairy_get_race(void)
 
         me.life = 91;
         me.base_hp = 13;
-        me.exp = 140;
+        me.exp = 120;
         me.infra = 4;
         me.shop_adjust = 110;
 
@@ -638,7 +638,7 @@ race_t *spectre_get_race(void)
 
         me.life = 90;
         me.base_hp = 13;
-        me.exp = 250;
+        me.exp = 200;
         me.infra = 5;
         me.flags = RACE_IS_NONLIVING | RACE_IS_UNDEAD;
         me.shop_adjust = 135;
@@ -710,7 +710,7 @@ race_t *sprite_get_race(void)
 
         me.life = 92;
         me.base_hp = 14;
-        me.exp = 135;
+        me.exp = 115;
         me.infra = 4;
         me.shop_adjust = 90;
 
@@ -799,7 +799,7 @@ race_t *tonberry_get_race(void)
 
         me.life = 108;
         me.base_hp = 26;
-        me.exp = 175;
+        me.exp = 140;
         me.infra = 2;
         me.shop_adjust = 115;
 
@@ -879,7 +879,7 @@ race_t *vampire_get_race(void)
 
         me.life = 102;
         me.base_hp = 22;
-        me.exp = 200;
+        me.exp = 170;
         me.infra = 5;
         me.flags = RACE_IS_NONLIVING | RACE_IS_UNDEAD;
         me.shop_adjust = 130;
@@ -935,7 +935,7 @@ race_t *wood_elf_get_race(void)
 
         me.life = 97;
         me.base_hp = 16;
-        me.exp = 125;
+        me.exp = 115;
         me.infra = 3;
         me.shop_adjust = 95;
 
@@ -1078,7 +1078,7 @@ race_t *zombie_get_race(void)
 
         me.life = 108;
         me.base_hp = 24;
-        me.exp = 180;
+        me.exp = 140;
         me.infra = 2;
         me.flags = RACE_IS_NONLIVING | RACE_IS_UNDEAD;
         me.shop_adjust = 140;

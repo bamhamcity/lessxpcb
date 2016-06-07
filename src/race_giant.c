@@ -547,7 +547,7 @@ static race_t *_hru_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 225;
+        me.exp = 160;
 
         me.birth = _birth;
         /* This defeats the purpose of their monster king reward:
@@ -689,7 +689,7 @@ static race_t *_fire_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 200;
+        me.exp = 160;
 
         me.birth = _birth;
         me.get_powers = _fire_get_powers;
@@ -822,7 +822,7 @@ static race_t *_frost_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 200;
+        me.exp = 160;
 
         me.birth = _birth;
         me.get_powers = _frost_get_powers;
@@ -998,7 +998,7 @@ static race_t *_storm_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 250;
+        me.exp = 200;
 
         me.birth = _birth;
         me.get_powers = _storm_get_powers;
@@ -1096,7 +1096,7 @@ static race_t *_titan_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 5;
-        me.exp = 300;
+        me.exp = 225;
 
         me.birth = _birth;
         me.get_powers = _titan_get_powers;

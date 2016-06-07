@@ -229,7 +229,7 @@ static race_t *_solar_get_race_t(void)
         me.extra_skills = xs;
 
         me.infra = 3;
-        me.exp = 325; /* 14.6 Mxp */
+        me.exp = 225; /* 14.6 Mxp */
         me.base_hp = 26;
 
         me.get_spells = _get_spells;

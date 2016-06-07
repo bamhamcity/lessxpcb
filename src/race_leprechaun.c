@@ -414,7 +414,7 @@ race_t *mon_leprechaun_get_race(void)
         me.desc = _desc;
 
         me.infra = 5;
-        me.exp = 150;
+        me.exp = 130;
         me.base_hp = 15;
         me.shop_adjust = 85;
 
