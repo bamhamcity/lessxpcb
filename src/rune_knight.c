@@ -129,6 +129,10 @@ bool rune_add(object_type *o_ptr, int which, bool prompt)    /* Birthing needs a
                 format("Really add %^s to %^s?", 
                     rune_desc(which), o_name))) return FALSE;
     }
+    if (object_is_nameless(o_ptr))
+    {
+            o_ptr->discount = 99;
+    }
 
     o_ptr->rune = which;
 
