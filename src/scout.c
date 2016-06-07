@@ -471,7 +471,7 @@ class_t *scout_get_class(void)
         me.extra_skills = xs;
         me.life = 104;
         me.base_hp = 8;
-        me.exp = 130;
+        me.exp = 110;
         me.pets = 40;
 
         me.calc_bonuses = _calc_bonuses;

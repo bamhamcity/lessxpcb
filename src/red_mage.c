@@ -93,7 +93,7 @@ class_t *red_mage_get_class(void)
         me.extra_skills = xs;
         me.life = 106;
         me.base_hp = 8;
-        me.exp = 140;
+        me.exp = 120;
         me.pets = 40;
         
         me.caster_info = _caster_info;

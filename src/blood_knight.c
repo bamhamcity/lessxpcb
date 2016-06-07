@@ -576,7 +576,7 @@ class_t *blood_knight_get_class(void)
         
         me.life = 120;
         me.base_hp = 20;
-        me.exp = 150;
+        me.exp = 120;
         me.pets = 40;
 
         me.calc_bonuses = _calc_bonuses;

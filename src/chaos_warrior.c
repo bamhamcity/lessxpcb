@@ -697,7 +697,7 @@ class_t *chaos_warrior_get_class(void)
         me.extra_skills = xs;
         me.life = 111;
         me.base_hp = 12;
-        me.exp = 125;
+        me.exp = 110;
         me.pets = 40;
         
         me.calc_bonuses = _calc_bonuses;

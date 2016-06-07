@@ -200,7 +200,7 @@ class_t *blue_mage_get_class(void)
         me.extra_skills = xs;
         me.life = 100;
         me.base_hp = 4;
-        me.exp = 130;
+        me.exp = 110;
         me.pets = 35;
         
         me.caster_info = _caster_info;

@@ -641,7 +641,7 @@ class_t *force_trainer_get_class(void)
         me.extra_skills = xs;
         me.life = 100;
         me.base_hp = 4;
-        me.exp = 135;
+        me.exp = 120;
         me.pets = 40;
 
         me.calc_bonuses = _calc_bonuses;

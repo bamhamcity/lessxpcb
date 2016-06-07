@@ -66,7 +66,7 @@ class_t *mage_get_class(void)
         me.extra_skills = xs;
         me.life = 95;
         me.base_hp = 0;
-        me.exp = 130;
+        me.exp = 110;
         me.pets = 30;
         
         me.caster_info = _caster_info;

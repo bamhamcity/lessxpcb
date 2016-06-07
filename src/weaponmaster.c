@@ -4317,7 +4317,7 @@ class_t *weaponmaster_get_class(int subclass)
 
         me.life = 109;
         me.base_hp = 12;
-        me.exp = 135;
+        me.exp = 120;
         me.pets = 40;
         
         me.caster_info = _caster_info;

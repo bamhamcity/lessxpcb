@@ -762,7 +762,7 @@ class_t *mauler_get_class(void)
         me.extra_skills = xs;
         me.life = 111;
         me.base_hp = 18;
-        me.exp = 120;
+        me.exp = 110;
         me.pets = 40;
 
         me.calc_bonuses = _calc_bonuses;

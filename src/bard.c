@@ -201,7 +201,7 @@ class_t *bard_get_class(void)
         me.extra_skills = xs;
         me.life = 100;
         me.base_hp = 4;
-        me.exp = 140;
+        me.exp = 120;
         me.pets = 25;
 
         me.calc_bonuses = _calc_bonuses;

@@ -640,7 +640,7 @@ class_t *magic_eater_get_class(void)
         me.extra_skills = xs;
         me.life = 103;
         me.base_hp = 6;
-        me.exp = 130;
+        me.exp = 120;
         me.pets = 30;
 
         me.birth = _birth;

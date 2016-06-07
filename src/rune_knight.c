@@ -1337,7 +1337,7 @@ class_t *rune_knight_get_class(void)
         me.extra_skills = xs;
         me.life = 107;
         me.base_hp = 6;
-        me.exp = 150;
+        me.exp = 120;
         me.pets = 35;
 
         me.calc_bonuses = _calc_bonuses;

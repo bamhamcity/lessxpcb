@@ -103,7 +103,7 @@ class_t *blood_mage_get_class(void)
         me.extra_skills = xs;
         me.life = 108;
         me.base_hp = 10;
-        me.exp = 135;
+        me.exp = 115;
         me.pets = 30;
 
         me.calc_bonuses = _calc_bonuses;

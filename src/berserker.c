@@ -222,7 +222,7 @@ class_t *berserker_get_class(void)
         me.extra_skills = xs;
         me.life = 200;
         me.base_hp = 22;
-        me.exp = 160;
+        me.exp = 150;
         me.pets = 255;
         
         me.calc_bonuses = _calc_bonuses;

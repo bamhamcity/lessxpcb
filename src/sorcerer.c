@@ -84,7 +84,7 @@ class_t *sorcerer_get_class(void)
         me.extra_skills = xs;
         me.life = 65;
         me.base_hp = 0;
-        me.exp = 160;
+        me.exp = 140;
         me.pets = 25;
         
         me.calc_bonuses = _calc_bonuses;

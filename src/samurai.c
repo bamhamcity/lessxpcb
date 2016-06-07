@@ -1287,7 +1287,7 @@ class_t *samurai_get_class(void)
         me.extra_skills = xs;
         me.life = 111;
         me.base_hp = 12;
-        me.exp = 130;
+        me.exp = 120;
         me.pets = 40;
 
         me.caster_info = _caster_info;        
