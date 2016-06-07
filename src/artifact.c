@@ -2327,13 +2327,13 @@ s32b create_artifact(object_type *o_ptr, u32b mode)
             break;
 
         case TV_RING:
-            switch (randint1(8))
+            switch (randint1(7))
             {
-            case 1: case 2: case 3:
+            case 1: case 2:
                 random_plus(o_ptr);
                 has_pval = TRUE;
                 break;
-            case 4:
+            case 3:
                 if (one_in_(10))
                 {
                     add_flag(o_ptr->art_flags, TR_SPEED);
@@ -2396,7 +2396,6 @@ s32b create_artifact(object_type *o_ptr, u32b mode)
                     one_high_resistance(o_ptr);
                 }
                 break;
-<<<<<<< HEAD
             case 4:
                 if (one_in_(3))
                 {
@@ -2417,12 +2416,9 @@ s32b create_artifact(object_type *o_ptr, u32b mode)
                     break;
                 }
             case 5: case 6:
-=======
-            case 5: case 6: case 7:
->>>>>>> ed5fbe2... Tweak randart valuation/generation, mainly for jewellery.
                 random_resistance(o_ptr);
                 break;
-            case 8:
+            case 7:
                 random_misc(o_ptr);
                 break;
             }
