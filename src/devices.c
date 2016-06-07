@@ -2411,7 +2411,7 @@ static bool _device_pick_effect_aux(object_type *o_ptr, device_effect_info_ptr e
     if ((mode & AM_GOOD) && !(entry->flags & _DROP_GOOD)) return FALSE;
     if ((mode & AM_GREAT) && !(entry->flags & _DROP_GREAT)) return FALSE;
     if ((mode & AM_STOCK_TOWN) && !(entry->flags & _STOCK_TOWN)) return FALSE;
-    if (easy_id && entry->type == EFFECT_IDENTIFY_FULL) return FALSE;
+    if (entry->type == EFFECT_IDENTIFY_FULL) return FALSE;
     return TRUE;
 }
 
@@ -6555,7 +6555,7 @@ cptr do_effect(effect_t *effect, int mode, int boost)
         {
             /* TODO: Again, we need the underlying object ... 
                For now, we safely assume the artifact is Bloody Moon. */
-            int slot = equip_find_artifact(ART_BLOOD);
+            int slot = equip_find_art_or_replacement(ART_BLOOD);
             if (slot)
             {
                 get_bloody_moon_flags(equip_obj(slot));
@@ -6613,7 +6613,7 @@ cptr do_effect(effect_t *effect, int mode, int boost)
                         Note: Effects might someday be triggered by spells, so passing
                         an object to this routine won't always make sense!
                      */
-                    int slot = equip_find_artifact(ART_MURAMASA);
+                    int slot = equip_find_art_or_replacement(ART_MURAMASA);
                     if (slot)
                     {
                         msg_print("The Muramasa is destroyed!");

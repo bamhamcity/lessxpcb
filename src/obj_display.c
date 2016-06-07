@@ -920,14 +920,15 @@ extern void obj_display_doc(object_type *o_ptr, doc_ptr doc)
 
     _display_ego_desc(o_ptr, doc);
 
-    if (object_is_known(o_ptr))
+    if (!(o_ptr->ident & IDENT_FULL))
+        doc_printf(doc, "This object may have additional powers.\n");
+    else if (p_ptr->prace == RACE_ANDROID)
     {
-        if (object_is_ego(o_ptr) && !ego_is_aware(o_ptr->name2))
-            doc_printf(doc, "You are unfamiliar with this ego type. To learn the basic attributes of this ego type, you need to *identify* or sell this object.\n");
-        else if (object_is_artifact(o_ptr) && !(o_ptr->ident & IDENT_FULL))
-            doc_printf(doc, "This object is an artifact, a unique object whose powers you must learn by *identifying* or selling this object.\n");
-        else if (!(o_ptr->ident & IDENT_FULL))
-            doc_printf(doc, "This object may have additional powers which you may learn by *identifying* or selling this object.\n");
+        char tmp[10];
+        int item_exp = android_item_exp(o_ptr);
+        big_num_display(item_exp, tmp);
+        if (item_exp)
+            doc_printf(doc, "Cst: %s\n", tmp);
     }
 
     _display_autopick(o_ptr, doc);

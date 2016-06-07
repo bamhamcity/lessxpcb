@@ -128,7 +128,7 @@ static void _build_general1(doc_ptr doc)
 
     update_playtime();
     doc_printf(doc, " Play Time  : <color:G>%8.8s</color>\n",
-                            format("%.2lu:%.2lu", playtime/(60*60), (playtime/60)%60));
+               format("%.2lu:%.2lu:%.2lu", playtime/(60*60), (playtime/60)%60, playtime%60));
 }
 
 static void _build_general2(doc_ptr doc)
@@ -2301,9 +2301,6 @@ static void _build_options(doc_ptr doc)
                                                     always_small_levels ? "Always" :
                                                     small_levels ? "Sometimes" : "Never");
 
-    if (easy_id)
-        doc_printf(doc, " Easy Identify:      On\n");
-
     if (no_wilderness)
         doc_printf(doc, " Wilderness:         Off\n");
 
@@ -2332,6 +2329,9 @@ static void _build_options(doc_ptr doc)
 
     if (no_egos)
         doc_printf(doc, " No Egos:            Enabled\n");
+
+    if (no_selling)
+        doc_printf(doc, " No Selling:         Enabled\n");
 
     if (p_ptr->noscore)
         doc_printf(doc, "\n <color:v>You have done something illegal.</color>\n");

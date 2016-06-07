@@ -313,7 +313,6 @@ extern bool alert_trap_detect;    /* Alert when leaving trap detected area */
 
 /*** Birth Options ***/
 
-extern bool easy_id;    /* Easy Identify */
 extern bool smart_learn;    /* Monsters learn from their mistakes (*) */
 extern bool smart_cheat;    /* Monsters exploit players weaknesses (*) */
 extern bool no_wilderness;  /* Play without a normal wilderness */
@@ -334,6 +333,7 @@ extern bool ironman_quests; /* Random quests must be completed */
 extern bool random_artifacts;
 extern bool no_artifacts;
 extern bool no_egos;
+extern bool no_selling;
 extern bool enable_virtues;
 
 /*** Easy Object Auto-Destroyer ***/
@@ -1454,7 +1454,7 @@ extern int mod_need_mana(int need_mana, int spell, int realm);
 extern int mod_spell_chance_1(int chance, int realm);
 extern int mod_spell_chance_2(int chance, int realm);
 extern s16b spell_chance(int spell,int realm);
-extern bool spell_okay(int spell, bool learned, bool study_pray, int realm);
+extern bool spell_okay(int spell, bool learned, bool study_pray, int realm, bool browse);
 extern void print_spells(int target_spell, byte *spells, int num, rect_t display, int use_realm);
 extern bool hates_acid(object_type *o_ptr);
 extern bool hates_elec(object_type *o_ptr);
@@ -1722,6 +1722,7 @@ extern bool restore_level(void);
 extern bool lose_all_info(void);
 extern void gain_exp_64(s32b amount, u32b amount_frac);
 extern void gain_exp(s32b amount);
+extern int  android_item_exp(object_type *o_ptr);
 extern void calc_android_exp(void);
 extern void lose_exp(s32b amount);
 extern bool drain_exp(s32b drain, s32b slip, int hold_life_prob);
@@ -2273,6 +2274,7 @@ extern bool duelist_issue_challenge(void);
 extern int duelist_skill_sav(int m_idx);
 extern void strafing_spell(int cmd, variant *res);
 extern bool nemesis_hack;    /* Actually, its in melee1.c */
+extern cptr duelist_equip_error(void);
 
 
 /* magic_eater.c */

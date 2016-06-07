@@ -1813,7 +1813,7 @@ bool alchemy(void)
 
     price = object_value_real(o_ptr);
 
-    if (price <= 0)
+    if (price <= 0 || no_selling)
     {
         msg_format("You turn %s to fool's gold.", o_name);
     }
@@ -2269,13 +2269,6 @@ bool identify_item(object_type *o_ptr)
     object_known(o_ptr);
 
     stats_on_identify(o_ptr);
-
-    /* Experimental: Jewelry is a bit tedious to *id*, and id often reveals very little. */
-    if (!easy_id && object_is_jewelry(o_ptr) && !object_is_artifact(o_ptr))
-    {
-        o_ptr->ident |= IDENT_FULL;
-        ego_aware(o_ptr);
-    }
 
     /* Player touches it */
     o_ptr->marked |= OM_TOUCHED;
@@ -3313,7 +3306,7 @@ s16b spell_chance(int spell, int use_realm)
  * The spell must be legible, not forgotten, and also, to cast,
  * it must be known, and to study, it must not be known.
  */
-bool spell_okay(int spell, bool learned, bool study_pray, int use_realm)
+bool spell_okay(int spell, bool learned, bool study_pray, int use_realm, bool browse)
 {
     magic_type *s_ptr;
 
@@ -3326,6 +3319,9 @@ bool spell_okay(int spell, bool learned, bool study_pray, int use_realm)
     {
         s_ptr = &mp_ptr->info[use_realm - 1][spell];
     }
+
+    // Can always browse spell information.
+    if (browse) return (TRUE);
 
     /* Spell is illegal */
     if (s_ptr->slevel > p_ptr->lev) return (FALSE);

@@ -2829,13 +2829,16 @@ void update_mon(int m_idx, bool full)
                     r_ptr->r_sights++;
             }
 
-            /* Eldritch Horror */
-            if (r_info[m_ptr->ap_r_idx].flags2 & RF2_ELDRITCH_HORROR)
+            if (player_has_los_bold(fy, fx))
             {
-                sanity_blast(m_ptr, FALSE);
-            }
+                /* Eldritch Horror */
+                if (r_info[m_ptr->ap_r_idx].flags2 & RF2_ELDRITCH_HORROR)
+                {
+                    sanity_blast(m_ptr, FALSE);
+                }
 
-            fear_update_m(m_ptr);
+                fear_update_m(m_ptr);
+            }
 
             /* Disturb on appearance */
             if (disturb_near 
@@ -4464,7 +4467,7 @@ bool summon_named_creature (int who, int oy, int ox, int r_idx, u32b mode)
     }
     else
     {
-        if (!(r_ptr->flags7 & RF7_GUARDIAN) && r_ptr->cur_num < r_ptr->max_num)
+        if ((!(r_ptr->flags7 & RF7_GUARDIAN) || no_wilderness) && r_ptr->cur_num < r_ptr->max_num)
             result = place_monster_aux(who, y, x, r_idx, (mode | PM_NO_KAGE));
         
         if (!result && (r_ptr->flags1 & RF1_UNIQUE) && one_in_(2))

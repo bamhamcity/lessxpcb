@@ -1413,8 +1413,6 @@ static bool _get_store_obj(object_type *o_ptr)
             k_idx = lookup_kind(TV_SCROLL, SV_SCROLL_IDENTIFY);
         else if (one_in_(10))
             k_idx = lookup_kind(TV_SCROLL, SV_SCROLL_TELEPORT);
-        else if (!easy_id && one_in_(20))
-            k_idx = lookup_kind(TV_SCROLL, SV_SCROLL_STAR_IDENTIFY);
     }
     else if (cur_store_num == STORE_MAGIC && one_in_(20))
     {
@@ -2267,9 +2265,14 @@ static void store_sell(void)
     if (cur_store_num == STORE_HOME)
         q = "Drop which item? ";
 
-    else if (cur_store_num == STORE_MUSEUM)
+    else if (cur_store_num == STORE_MUSEUM || no_selling)
         q = "Give which item? ";
 
+    else if (no_selling)
+    {
+        msg_print("Selling is prohibited!");
+        return;
+    }
     else
         q = "Sell which item? ";
 
@@ -2387,7 +2390,10 @@ static void store_sell(void)
             price = ot_ptr->max_cost;
         price *= q_ptr->number;
 
-        sprintf(prompt, "Really sell %s (%c) for <color:R>%d</color> gp? <color:y>[y/n]</color>", o_name, index_to_label(item), price);
+        if (!no_selling)
+            sprintf(prompt, "Really sell %s (%c) for <color:R>%d</color> gp? <color:y>[y/n]</color>", o_name, index_to_label(item), price);
+        else
+           sprintf(prompt, "Really give %s (%c)?", o_name, index_to_label(item));
         if (msg_prompt(prompt, "ny", PROMPT_YES_NO) == 'y')
         {
             if (cur_store_num == STORE_BLACK) /* The black market is illegal! */
@@ -2397,14 +2403,17 @@ static void store_sell(void)
                 virtue_add(VIRTUE_NATURE, 1);
 
             /* Get some money */
-            p_ptr->au += price;
-            stats_on_gold_selling(price);
-            p_ptr->redraw |= PR_GOLD;
-            if (prace_is_(RACE_MON_LEPRECHAUN))
-                p_ptr->update |= (PU_BONUS | PU_HP | PU_MANA);
+            if (!no_selling)
+            {
+                p_ptr->au += price;
+                stats_on_gold_selling(price);
+                p_ptr->redraw |= PR_GOLD;
+                if (prace_is_(RACE_MON_LEPRECHAUN))
+                    p_ptr->update |= (PU_BONUS | PU_HP | PU_MANA);
 
-            /* Update the display */
-            store_prt_gold();
+                /* Update the display */
+                store_prt_gold();
+            }
 
             /* Identify it */
             stats_on_sell(o_ptr); /* before identify, please! */
@@ -2427,7 +2436,11 @@ static void store_sell(void)
             object_desc(o_name, q_ptr, OD_COLOR_CODED);
 
             /* Describe the result (in message buffer) */
-            msg_format("You sold %s for <color:R>%d</color> gold.", o_name, price);
+
+            if (!no_selling)
+                msg_format("You sold %s for <color:R>%d</color> gold.", o_name, price);
+            else
+                msg_format("You gave %s.", o_name);
 
             /*
              * Hack -- Allocate charges between those wands or rods sold
@@ -3212,7 +3225,10 @@ void do_cmd_store(void)
         else
         {
             prt("p) Purchase an item", 21 + xtra_stock, 30);
-            prt("s) Sell an item", 22 + xtra_stock, 30);
+            if (!no_selling)
+                prt("s) Sell an item", 22 + xtra_stock, 30);
+            else
+                prt("s) Give an item", 22 + xtra_stock, 30);
             prt("x) eXamine an item", 23 + xtra_stock,30);
             if (rogue_like_commands) /* P -> b coincidentally and 'P'urchase entire stock works */
                 prt("  P) Purchase entire stock", 23 + xtra_stock, 56);

@@ -666,7 +666,7 @@ s16b get_obj_num(int level)
         k_idx = table[i].index;
         k_ptr = &k_info[k_idx];
         if (k_ptr->tval == TV_FOOD && k_ptr->sval == SV_FOOD_AMBROSIA && dungeon_type != DUNGEON_OLYMPUS) continue;
-        if (easy_id && k_ptr->tval == TV_SCROLL && k_ptr->sval == SV_SCROLL_STAR_IDENTIFY) continue;
+        if (k_ptr->tval == TV_SCROLL && k_ptr->sval == SV_SCROLL_STAR_IDENTIFY) continue;
         /* Hack -- prevent embedded chests */
         if (opening_chest && (k_ptr->tval == TV_CHEST)) continue;
 
@@ -756,12 +756,9 @@ void object_known(object_type *o_ptr)
     o_ptr->ident &= ~IDENT_TRIED;
 
     /* Now we know about the item */
-    o_ptr->ident |= IDENT_KNOWN;
-    if (easy_id)
-    {
-        o_ptr->ident |= IDENT_FULL;
-        ego_aware(o_ptr);
-    }
+    o_ptr->ident |= (IDENT_KNOWN | IDENT_FULL);
+
+    ego_aware(o_ptr);
 }
 
 /*

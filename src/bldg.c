@@ -2138,7 +2138,10 @@ static bool inn_comm(int cmd)
                 return FALSE;
             }
 
-            msg_print("The barkeep gives you some gruel and a beer.");
+            if (p_ptr->prace == RACE_MON_DEMON || p_ptr->prace == RACE_BALROG)
+                msg_print("You devour a passing tavern-goer.");
+            else
+                msg_print("The barkeep gives you some gruel and a beer.");
 
             (void)set_food(PY_FOOD_MAX - 1);
             break;
@@ -2182,6 +2185,7 @@ static bool inn_comm(int cmd)
                 else
                 {
                     int i;
+                    object_type *o_ptr;
 
                     set_blind(0, TRUE);
                     set_confused(0, TRUE);
@@ -2910,6 +2914,7 @@ static bool enchant_item(int cost, int to_hit, int to_dam, int to_ac, bool is_gu
     {
         int idx = -1;
         int old_cost;
+        int unit_cost_sum = 0;
         _enchant_choice_t choices[25];
         object_type copy = {0};
         menu_t menu = { "Enchant How Much?", NULL, 
@@ -2960,10 +2965,13 @@ static bool enchant_item(int cost, int to_hit, int to_dam, int to_ac, bool is_gu
             else
             {
                 int new_cost = new_object_cost(&copy, COST_REAL);
-                int unit_cost = new_cost - old_cost;
+                int unit_cost_add = new_cost - old_cost;
+                old_cost = new_cost;
                 int min_cost = (i+1)*cost;
 
-                unit_cost *= m;
+                unit_cost_add *= m;
+                unit_cost_sum += unit_cost_add;
+                int unit_cost = unit_cost_sum;
 
                 unit_cost = store_calc_sell_price(unit_cost, store_factor);
 

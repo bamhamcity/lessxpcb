@@ -3831,7 +3831,13 @@ void calc_bonuses(void)
             p_ptr->rune_elem_prot = TRUE;
         if (o_ptr->rune == RUNE_GOOD_FORTUNE) 
             p_ptr->good_luck = TRUE;
+        if (o_ptr->name1 == ART_STONE_LORE || o_ptr->name3 == ART_STONE_LORE)
+            p_ptr->loremaster = TRUE;
     }
+
+    // Maybe there's a better place to put this?
+    if (p_ptr->lev >= 25)
+        p_ptr->loremaster = TRUE;
 
     mut_calc_bonuses();  /* Process before equip for MUT_FLESH_ROT */
     equip_calc_bonuses();
@@ -4487,7 +4493,8 @@ void calc_bonuses(void)
             /* Hack: At the moment, only the Monkey King's Cudgel ('Ruyi Jingu Bang')
              * should have this power, and it really should only enlarge that weapon (So
              * no swapping, or dual wielding, or whatever) */
-            if (o_ptr->name1 == ART_MONKEY_KING)
+            if (o_ptr->name1 == ART_MONKEY_KING
+                || o_ptr->name3 == ART_MONKEY_KING)
             {
                 info_ptr->to_dd += 2;
                 info_ptr->to_ds += 2;

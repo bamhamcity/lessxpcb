@@ -2327,7 +2327,7 @@ s32b create_artifact(object_type *o_ptr, u32b mode)
             break;
 
         case TV_RING:
-            switch (randint1(7))
+            switch (randint1(8))
             {
             case 1: case 2:
                 random_plus(o_ptr);
@@ -3026,7 +3026,7 @@ void random_artifact_resistance(object_type * o_ptr, artifact_type *a_ptr)
         }
     }
 
-    if (o_ptr->name1 == ART_BLOOD)
+    if (o_ptr->name1 == ART_BLOOD || o_ptr->name3 == ART_BLOOD)
     {
         get_bloody_moon_flags(o_ptr);
     }
@@ -3176,6 +3176,10 @@ bool create_replacement_art(int a_idx, object_type *o_ptr)
     {
         object_prep(&forge2, forge1.k_idx);
         create_artifact(&forge2, CREATE_ART_GOOD);
+        // Copy the activation over. This is okay because picking activation
+        // on randarts is independent of everything else.
+        forge2.activation = a_info[a_idx].activation;
+        forge2.timeout = 0;
         power = object_value_real(&forge2);
 
         if (power > best_power)

@@ -294,7 +294,6 @@ bool alert_trap_detect;    /* Alert when leaving trap detected area */
 
 /*** Birth Options ***/
 
-bool easy_id;    /* Easy Identify */
 bool smart_learn;    /* Monsters learn from their mistakes (*) */
 bool smart_cheat;    /* Monsters exploit players weaknesses (*) */
 bool no_wilderness;
@@ -315,6 +314,7 @@ bool ironman_quests; /* Random quests must be completed */
 bool random_artifacts;
 bool no_artifacts;
 bool no_egos;
+bool no_selling;
 bool enable_virtues;
 
 /*** Easy Object Auto-Destroyer ***/

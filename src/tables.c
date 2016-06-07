@@ -3421,9 +3421,6 @@ option_type option_info[] =
 
     /*** Birth Options ***/
 
-    { &easy_id,                   FALSE, OPT_PAGE_BIRTH, 6, 31,
-    "easy_id",                      "Easy Identify" },
-
     { &smart_learn,                 TRUE,  OPT_PAGE_BIRTH, 1, 14,
     "smart_learn",                  "Monsters learn from their mistakes (*)" },
 
@@ -3486,6 +3483,9 @@ option_type option_info[] =
 
     { &no_egos,                            FALSE, OPT_PAGE_BIRTH, 6, 25,
     "no_egos",                            "Never create ego items" },
+
+    { &no_selling,                        FALSE, OPT_PAGE_BIRTH, 6, 26,
+    "no_selling",                       "Prohibit selling to shops" },
 
     /*** Easy Object Auto-Destroyer ***/
 

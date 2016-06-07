@@ -258,6 +258,19 @@ int equip_find_artifact(int which)
     return 0;
 }
 
+int equip_find_art_or_replacement(int which)
+{
+    int i;
+    for (i = EQUIP_BEGIN; i < EQUIP_BEGIN + _template->count; i++)
+    {
+        object_type *o_ptr = equip_obj(i);
+
+        if (o_ptr && (o_ptr->name1 == which || o_ptr->name3 == which))
+            return i;
+    }
+    return 0;
+}
+
 int equip_find_ego(int which)
 {
     int i;
@@ -1124,7 +1137,7 @@ void equip_calc_bonuses(void)
         if (o_ptr->name1 == ART_MAUL_OF_VICE)
             p_ptr->maul_of_vice = TRUE;
 
-        if (o_ptr->name1 == ART_STONE_LORE)
+        if (o_ptr->name1 == ART_STONE_LORE || o_ptr->name3 == ART_STONE_LORE)
             p_ptr->loremaster = TRUE;
 
         if (o_ptr->name2 == EGO_BOOTS_FAIRY || o_ptr->name2 == EGO_CLOAK_FAIRY)
