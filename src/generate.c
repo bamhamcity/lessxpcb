@@ -1431,11 +1431,10 @@ static bool level_gen(cptr *why)
 {
     int level_height, level_width;
 
-    if ((always_small_levels || ironman_small_levels ||
+    if (always_small_levels || ironman_small_levels ||
         (one_in_(SMALL_LEVEL) && small_levels) ||
          (d_info[dungeon_type].flags1 & DF1_BEGINNER) ||
-        (d_info[dungeon_type].flags1 & DF1_SMALLEST)) &&
-        !(d_info[dungeon_type].flags1 & DF1_BIG))
+        (d_info[dungeon_type].flags1 & DF1_SMALLEST))
     {
         if (cheat_room)
             msg_print("A 'small' dungeon level.");
