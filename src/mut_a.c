@@ -1213,7 +1213,7 @@ void fearless_mut(int cmd, variant *res)
         var_set_string(res, "You are completely fearless.");
         break;
     case SPELL_CALC_BONUS:
-        res_add(RES_FEAR);
+        res_add_immune(RES_FEAR);
         break;
     default:
         default_spell(cmd, res);
