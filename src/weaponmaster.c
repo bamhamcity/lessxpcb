@@ -3604,7 +3604,7 @@ static void _calc_bonuses(void)
             if (p_ptr->lev >= 20)
                 p_ptr->inven_prot = TRUE;
 
-            if (p_ptr->lev >= 45)
+            if (p_ptr->lev >= 40)
             {
                 res_add(RES_ACID);
                 res_add(RES_COLD);
