@@ -432,11 +432,11 @@ static void _absorb_all(object_type *o_ptr, _absorb_essence_f absorb_f)
     obj_flags(&new_obj, new_flgs);
 
     /* Ammo and Curses */
-    if (o_ptr->curse_flags & TRC_PERMA_CURSE) div++;
-    if (have_flag(old_flgs, TR_AGGRAVATE)) div++;
-    if (have_flag(old_flgs, TR_NO_TELE)) div++;
-    if (have_flag(old_flgs, TR_DRAIN_EXP)) div++;
-    if (have_flag(old_flgs, TR_TY_CURSE)) div++;
+    if (o_ptr->curse_flags & OFC_PERMA_CURSE) div++;
+    if (have_flag(old_flgs, OF_AGGRAVATE)) div++;
+    if (have_flag(old_flgs, OF_NO_TELE)) div++;
+    if (have_flag(old_flgs, OF_DRAIN_EXP)) div++;
+    if (have_flag(old_flgs, OF_TY_CURSE)) div++;
 
     if (object_is_ammo(&old_obj))
         div *= _AMMO_DIV;

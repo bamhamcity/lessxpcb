@@ -6169,7 +6169,7 @@ int android_item_exp(object_type *o_ptr)
         if (object_is_fixed_artifact(o_ptr))
         {
             level = (level + MAX(a_info[o_ptr->name1].level - 8, 5)) / 2;
-            level += MIN(20, a_info[o_ptr->name1].rarity/(a_info[o_ptr->name1].gen_flags & TRG_INSTA_ART ? 10 : 3));
+            level += MIN(20, a_info[o_ptr->name1].rarity/(a_info[o_ptr->name1].gen_flags & OFG_INSTA_ART ? 10 : 3));
         }
         else if (o_ptr->art_name || o_ptr->name2)
         {
