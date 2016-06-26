@@ -6156,13 +6156,24 @@ void gain_exp(s32b amount)
     gain_exp_64(amount, 0L);
 }
 
-int android_item_exp(object_type *o_ptr)
+
+void calc_android_exp(void)
 {
+    int slot;
+    s32b total_exp = 0;
+
+    if (p_ptr->is_dead) return;
+
+    if (p_ptr->prace != RACE_ANDROID) return;
+
+    for (slot = EQUIP_BEGIN; slot < EQUIP_BEGIN + equip_count(); slot++)
+    {
+        object_type *o_ptr = equip_obj(slot);
         int          value, exp, level;
 
-        if (!o_ptr) return 0;
-        if (object_is_jewelry(o_ptr)) return 0;
-        if (o_ptr->tval == TV_LITE) return 0;
+        if (!o_ptr) continue;
+        if (object_is_jewelry(o_ptr)) continue;
+        if (o_ptr->tval == TV_LITE) continue;
 
         level = MAX(k_info[o_ptr->k_idx].level - 8, 1);
 
@@ -6202,7 +6213,7 @@ int android_item_exp(object_type *o_ptr)
             value = object_value_real(&copy);
         }
 
-        if (value <= 0) return 0;
+        if (value <= 0) continue;
         if (object_is_(o_ptr, TV_SOFT_ARMOR, SV_ABUNAI_MIZUGI) && p_ptr->personality != PERS_SEXY) 
             value /= 32;
         if (value > 5000000L) value = 5000000L;
@@ -6228,26 +6239,12 @@ int android_item_exp(object_type *o_ptr)
                 exp += (value - 100000L) * level / 4;
         }
         if (object_is_melee_weapon(o_ptr) || o_ptr->tval == TV_BOW)
-            return exp / 48;
-        else if (object_is_body_armour(o_ptr))
-            return 3 * exp / 32;
+            total_exp += exp / 48;
         else 
-            return exp / 16;
-}
+            total_exp += exp / 16;
 
-void calc_android_exp(void)
-{
-    int slot;
-    s32b total_exp = 0;
-
-    if (p_ptr->is_dead) return;
-
-    if (p_ptr->prace != RACE_ANDROID) return;
-
-    for (slot = EQUIP_BEGIN; slot < EQUIP_BEGIN + equip_count(); slot++)
-    {
-        object_type *o_ptr = equip_obj(slot);
-        total_exp += android_item_exp(o_ptr);
+        if (object_is_body_armour(o_ptr)) 
+            total_exp += exp / 32;
     }
     p_ptr->exp = p_ptr->max_exp = total_exp;
     check_experience();

@@ -14,6 +14,12 @@
 
 #include "init.h"
 #include "z-doc.h"
+#ifndef MACINTOSH
+ //#ifdef CHECK_MODIFICATION_TIME
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ //#endif /* CHECK_MODIFICATION_TIME */
+ #endif
 
 /*
  * This file is used to initialize various variables and arrays for the
