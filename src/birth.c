@@ -735,11 +735,6 @@ static bool _valid_class(int which)
         if (get_race()->flags & RACE_IS_NONLIVING)
             return FALSE;
     }
-    if (which == CLASS_BEASTMASTER || which == CLASS_CAVALRY)
-    {
-        if (p_ptr->prace == RACE_CENTAUR)
-            return FALSE;
-    }
     if (which == CLASS_DUELIST || which == CLASS_MAULER)
     {
         if (p_ptr->prace == RACE_TONBERRY)
