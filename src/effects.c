@@ -3352,12 +3352,14 @@ bool set_superstealth(bool set)
         {
             if (cave[py][px].info & CAVE_MNLT)
             {
-                msg_print("You are mantled in weak shadow from ordinary eyes.");
+                if (disturb_minor)
+                    msg_print("<color:D>You are mantled in weak shadow from ordinary eyes.</color>");
                 p_ptr->monlite = p_ptr->old_monlite = TRUE;
             }
             else
             {
-                msg_print("You are mantled in shadow from ordinary eyes!");
+                if (disturb_minor)
+                    msg_print("<color:D>You are mantled in shadow from ordinary eyes!</color>");
                 p_ptr->monlite = p_ptr->old_monlite = FALSE;
             }
 
@@ -3373,7 +3375,8 @@ bool set_superstealth(bool set)
     {
         if (p_ptr->special_defense & NINJA_S_STEALTH)
         {
-            msg_print("You are exposed to common sight once more.");
+            if (disturb_minor)
+                msg_print("<color:y>You are exposed to common sight once more.</color>");
 
             notice = TRUE;
 
@@ -5406,6 +5409,7 @@ bool do_dec_stat(int stat)
         if (disturb_minor)
             msg_format("You feel %s for a moment, but the feeling passes.", desc_stat_neg[stat]);
 
+        equip_learn_flag(OF_SUST_STR + stat);
         return TRUE;
     }
 
@@ -5540,8 +5544,8 @@ bool lose_all_info(void)
         /* Skip non-objects */
         if (!o_ptr->k_idx) continue;
 
-        /* Allow "protection" by the MENTAL flag */
-        if (o_ptr->ident & (IDENT_FULL)) continue;
+        /* Allow "protection" by *ID* */
+        if (obj_is_identified_fully(o_ptr)) continue;
 
         /* Remove "default inscriptions" */
         o_ptr->feeling = FEEL_NONE;
